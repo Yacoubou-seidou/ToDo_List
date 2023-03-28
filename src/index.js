@@ -1,14 +1,33 @@
- import _ from 'lodash';
+import _ from 'lodash';
 import './index.css';
 
- function component() {
-   const element = document.createElement('div');
+const todoPlaceholder = document.querySelector('.todoPlaceholder');
 
-   // Lodash, now imported by this script
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const todoArray = [{ description: 'Wash Car', completed: false, index: 1 }, { description: 'Call Friends', completed: false, index: 2 }, { description: 'Submit Project', completed: false, index: 3 }];
 
-   return element;
- }
-
- document.body.appendChild(component());
+const component = () => {
+  const element = document.createElement('ul');
+  let content = '';
+  todoArray.forEach((todo) => {
+    content += `
+    <li class='borderStyle'>
+    <input checked=${todo.completed} type='checkbox' id='${todo.index}'/>
+    <label for='${todo.index}'>${todo.description}</label>
+    </li>
+    `;
+  });
+  // Lodash, now imported by this script
+  element.innerHTML = _.join([content], ' ');
+  element.classList.add('listContent');
+  return element;
+};
+const buttonElement = () => {
+  const btnDelete = document.createElement('input');
+  btnDelete.value = 'Clear all completed';
+  btnDelete.classList.add('btn');
+  btnDelete.classList.add('borderStyle');
+  btnDelete.type = 'button';
+  return btnDelete;
+};
+todoPlaceholder.appendChild(component());
+todoPlaceholder.appendChild(buttonElement());
