@@ -7,8 +7,9 @@ const todoArray = [{ description: 'Wash Car', completed: false, index: 1 }, { de
 
 const component = () => {
   const element = document.createElement('ul');
+  const filteredArray = todoArray.sort((a, b) => a.index - b.index);
   let content = '';
-  todoArray.forEach((todo) => {
+  filteredArray.forEach((todo) => {
     content += `
     <li class='borderStyle'>
     <input checked=${todo.completed} type='checkbox' id='${todo.index}'/>
