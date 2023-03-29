@@ -18,7 +18,7 @@ const component = () => {
   filteredArray.forEach((todo) => {
     content += `
     <li class='borderStyle'>
-    <input checked=${todo.completed} type='checkbox' id='${todo.index}'/>
+    <input  ${todo.completed ? 'checked' : undefined} type='checkbox' id='${todo.index}'/>
     <input class='formel' type="text" id="description" name="description" value='${todo.description}'>
     <span class='spanbtn'>&#8942;</span>
     </li>
@@ -67,7 +67,7 @@ addForm.addEventListener('submit', (e) => {
   addNewTask(todoArray, value);
   const element = `
     <li class='borderStyle'>
-    <input checked=${value.completed} type='checkbox' id='${value.index}'/>
+    <input ${value.completed ? 'checked' : undefined} type='checkbox' id='${value.index}'/>
     <input class='formel' type="text" id="description" name="description" value='${value.description}'>
     <span class='spanbtn'>&#8942;</span>
     </li>
