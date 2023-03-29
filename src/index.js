@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './index.css';
-import { addNewTask, editTask, deleteTask } from './functionality';
+import { addNewTask, editTask, deleteTask } from './functionality.js';
 
 const addForm = document.querySelector('.addForm');
 const todoPlaceholder = document.querySelector('.todoPlaceholder');
