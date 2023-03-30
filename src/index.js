@@ -11,6 +11,8 @@ const localData = localStorage.getItem('todoArray');
 if (localData) {
   todoArray = JSON.parse(localData);
 }
+
+
 const component = () => {
   const element = document.createElement('ul');
   const filteredArray = todoArray.sort((a, b) => a.index - b.index);
